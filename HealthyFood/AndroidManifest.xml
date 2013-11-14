@@ -22,6 +22,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.healthyfood.AddActivity"
+            android:label="@string/title_activity_add" >
+        </activity>
+        <activity
+            android:name="com.example.healthyfood.FavorActivity"
+            android:label="@string/title_activity_favor" >
+        </activity>
+        <activity
+            android:name="com.example.healthyfood.ProgressActivity"
+            android:label="@string/title_activity_progress" >
+        </activity>
+        <activity
+            android:name="com.example.healthyfood.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
     </application>
 
 </manifest>
