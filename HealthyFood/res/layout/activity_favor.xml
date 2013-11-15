@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/button"
-        android:text="Favor" />
+        android:onClick="transitionToFavorites"
+        android:text="Favorite" />
 
     <Button
         android:id="@+id/button"
@@ -24,32 +25,35 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:onClick="transitionToAdd"
         android:text="Adding" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Search"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/button1"
-        android:text="Search" />
+        android:onClick="transitionToSearch" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Progress"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/button4"
         android:layout_toRightOf="@+id/button2"
-        android:text="Setting" />
+        android:onClick="transitionToProgress"  />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:text="Menu"
         android:layout_alignParentTop="true"
-        android:text="Manu" />
+        android:layout_alignParentRight="true"
+        android:onClick="transitionToMenu"  />
 
     <LinearLayout
         android:layout_width="fill_parent"
