@@ -174,7 +174,7 @@ public class SearchActivity extends Activity {
 
 	}
 	
-	private void testChar(String s){
+	public void testChar(String s){
 		
 		TextView display = (TextView)findViewById(R.id.textView1);
 

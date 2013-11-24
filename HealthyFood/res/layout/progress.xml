@@ -10,6 +10,15 @@
     tools:context=".MainActivity" >
 
     <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_alignLeft="@+id/button5"
+        android:onClick="transitionToAdd"
+        android:text="Adding" />
+	<Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,16 +26,6 @@
         android:layout_toRightOf="@+id/button"
         android:onClick="transitionToFavorites"
         android:text="Favorite" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:onClick="transitionToAdd"
-        android:text="Adding" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -35,24 +34,6 @@
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/button1"
         android:onClick="transitionToSearch" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Progress"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/button2"
-        android:onClick="transitionToProgress"  />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Menu"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:onClick="transitionToMenu"  />
 
     <TextView
         android:id="@+id/textView"
@@ -66,5 +47,14 @@
         android:textIsSelectable="false"
         android:textSize="32sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button2"
+        android:onClick="transitionToProgress"
+        android:text="Progress" />
 
 </RelativeLayout>
