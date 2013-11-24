@@ -1,21 +1,17 @@
 package com.example.healthyfood;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
+import com.example.healthyfood.Food;
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.util.Xml;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.app.Activity;
 import android.widget.TextView;
 
 public class SearchActivity extends Activity {
@@ -25,6 +21,31 @@ public class SearchActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search);
 		
+		Search parser = new Search();
+		List<Food> tours;
+		try {
+			tours = parser.parseXML(this);
+			ArrayAdapter<Food> adapter = new ArrayAdapter<Food>(this,android.R.layout.simple_list_item_1,tours);
+			setListAdapter(adapter);
+			
+			for (int i =0; i<6;i++){
+				testChar(tours.get(i).Display_Name);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+	}
+
+
+
+	      
+		/*
 		XmlPullParserFactory pullParserFactory;
 		try {
 			pullParserFactory = XmlPullParserFactory.newInstance();
@@ -41,9 +62,9 @@ public class SearchActivity extends Activity {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}	
-	}
+		}*/
 	
+	/*
 	private void parseXML(XmlPullParser parser) throws XmlPullParserException,IOException
 	{
 		ArrayList<Food> foodArray = null;
@@ -62,14 +83,14 @@ public class SearchActivity extends Activity {
                     if (name == "Food_Display_Row"){
                         currentProduct = new Food();
                     } else if (currentProduct != null){
-                        /*if (name == "Food_Code"){
+                        if (name == "Food_Code"){
                             currentProduct.Food_Code = parser.nextText();
-                        } */if (name == "Display_Name"){
+                        } if (name == "Display_Name"){
                         	currentProduct.Display_Name = parser.nextText();
                         	testChar(name);
                         } 
                         
-                        /*
+                        
                         else if (name == "Portion_Default"){
                             currentProduct.Portion_Default= parser.nextText();
                         } else if (name == "Portion_Amount"){
@@ -118,7 +139,7 @@ public class SearchActivity extends Activity {
                             currentProduct.Calories= parser.nextText();
                         } else if (name == "Saturated_Fats"){
                             currentProduct.Saturated_Fats= parser.nextText();
-                        }*/
+                        }
                     }
                     break;
                 case XmlPullParser.END_TAG:
@@ -132,15 +153,23 @@ public class SearchActivity extends Activity {
 
         //printFoods(foodArray);
         
-	}
+	}*/
 	
-	private void testFirstElement(String content)
+	private void setListAdapter(ArrayAdapter<Food> adapter) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	private void testString(String content)
 	{
 		
 		TextView display = (TextView)findViewById(R.id.textView1);
 		String temp = (String) display.getText();
-		//temp += content;
-		//display.setText(temp1);
+		temp += content;
+		display.setText(temp);
 
 	}
 	
@@ -157,12 +186,11 @@ public class SearchActivity extends Activity {
 	
 	private void printFoods(ArrayList<Food> products)
 	{
-		String content = "test jajaja";
+		String content = "Array Contains Food items";
 		//Iterator<Food> it = products.iterator();
 		
 		if (products.isEmpty()){
-			content = "super empty";
-			
+			content = "Array is Empty";
 		}
 		/*
 		Food currProduct  = products.get(0);
@@ -212,41 +240,10 @@ public class SearchActivity extends Activity {
 	}
 	
 	
-
+	
 	
 
 }
-
-class Food
-{
-	public String Food_Code;
-	public String Display_Name;
-	public String Portion_Default;
-	public String Portion_Amount;
-	public String Portion_Display_Name;
-	public String Factor;
-	public String Increment;
-	public String Multiplier;
-	public String Grains;
-	public String Whole_Grains;
-	public String Vegetables;
-	public String Orange_Vegetables;
-	public String Drkgreen_Vegetables;
-	public String Starchy_vegetables;
-	public String Other_Vegetables;
-	public String Fruits;
-	public String Milk;
-	public String Meats;
-	public String Soy;
-	public String Drybeans_Peas;
-	public String Oils;
-	public String Solid_Fats;
-	public String Added_Sugars;
-	public String Alcohol;
-	public String Calories;
-	public String Saturated_Fats;
-}
-
 
 
 
