@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.app.Activity;
 import android.widget.TextView;
 
@@ -226,9 +227,11 @@ public class SearchActivity extends Activity {
 		Intent intent = new Intent(SearchActivity.this, AddActivity.class);
 		SearchActivity.this.startActivity(intent);
 	}
-	public void transitionToMenu(View view) {
-		Intent intent = new Intent(SearchActivity.this, MainActivity.class);
-		SearchActivity.this.startActivity(intent);
+	public void searchbyenter(View view) {
+        EditText edit = (EditText) findViewById(R.id.editText1);
+        String text = edit.getText().toString();
+        
+        
 	}
 	public void transitionToProgress(View view) {
 		Intent intent = new Intent(SearchActivity.this, ProgressActivity.class);
