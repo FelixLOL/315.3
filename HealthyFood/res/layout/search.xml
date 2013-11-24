@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.41"
                 android:background="#FFFFFF"
-                android:text="test and stuff" />
+                android:text="" />
         </LinearLayout>
     </LinearLayout>
 
