@@ -79,6 +79,61 @@ public class Search {
 				tour.setFood_Code(node.getChildText(FOOD_FOOD_CODE));
 				tour.setDisplay_Name(node.getChildText(FOOD_DISPLAY_NAME));
 				tour.setCalories(node.getChildText(FOOD_CALORIES));
+				tour.setPortion_Default(node.getChildText(FOOD_PORTION_DEFAULT));
+				tour.setPortion_Amount(node.getChildText(FOOD_PORTION_AMOUNT));
+				tour.setPortion_Display_Name(node.getChildText(FOOD_PORTION_DISPLAY_NAME));
+				tour.setFactor(node.getChildText(FOOD_FACTOR));
+				tour.setIncrement(node.getChildText(FOOD_INCREMENT));
+				tour.setMultiplier(node.getChildText(FOOD_MULTIPLIER));
+				tour.setFood_Code(node.getChildText(FOOD_FOOD_CODE));
+				tour.setGrains(node.getChildText(FOOD_GRAINS));
+				tour.setWhole_Grains(node.getChildText(FOOD_WHOLE_GRAINS));
+				tour.setVegetables(node.getChildText(FOOD_VEGETABLES));
+				tour.setOrange_Vegetables(node.getChildText(FOOD_ORANGE_VEGETABLES));
+				tour.setDrkgreen_Vegetables(node.getChildText(FOOD_DRKGREEN_VEGETABLES));
+				tour.setStarchy_vegetables(node.getChildText(FOOD_STARCHY_VEGETABLES));
+				tour.setOther_Vegetables(node.getChildText(FOOD_OTHER_VEGETABLES));
+				tour.setFruits(node.getChildText(FOOD_FRUITS));
+				tour.setMilk(node.getChildText(FOOD_MILK));
+				tour.setMeats(node.getChildText(FOOD_MEATS));
+				tour.setSoy(node.getChildText(FOOD_SOY));
+				tour.setDrybeans_Peas(node.getChildText(FOOD_DRYBEANS_PEAS));
+				tour.setOils(node.getChildText(FOOD_OILS));
+				tour.setSolid_Fats(node.getChildText(FOOD_SOLID_FATS));
+				tour.setAdded_Sugars(node.getChildText(FOOD_ADDED_SUGARS));
+				tour.setSolid_Fats(node.getChildText(FOOD_SOLID_FATS));
+				tour.setAlcohol(node.getChildText(FOOD_ALCOHOL));
+				tour.setCalories(node.getChildText(FOOD_CALORIES));
+				tour.setSaturated_Fats(node.getChildText(FOOD_SATURATED_FATS));
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				tours.add(tour);
 			}
 
