@@ -21,23 +21,25 @@ import android.widget.EditText;
 public class AddActivity extends Activity {
 	static Search parser = new Search();
 	static List<Food> tours;
-    static final String[] arrayList = new String[] {
-
-        "Afghanistan", "Albania", "Algeria", "American Samoa",
-            "Andorra", "Angola", "Anguilla", "Antarctica",
-            "Antigua and Barbuda", "Argentina", "Armenia", "Aruba",
-            "Australia", "Austria", "Azerbaijan", "Bahrain",
-            "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize",
-            "Benin", "Bermuda", "Bhutan", "Bolivia",
-            "Bosnia and Herzegovina", "Botswana", "Bouvet Island",
-            "Brazil", "British Indian Ocean Territory"
-    };
+	
+	private void getAllFoodItems(){
+		try {
+			tours = parser.parseXML(this);
+				//testChar("       CALORIES: "+ tours.get(i).Calories + System.getProperty("line.separator"));
+				//testChar("       PORTIONS: "+ tours.get(i).Portion_Amount + System.getProperty("line.separator"));
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+	}
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adding);
+		getAllFoodItems();
 		
 
 		/*
@@ -94,30 +96,29 @@ public class AddActivity extends Activity {
 	    String[] foodArray = null;
 		List<Food> foods = null;
 		
-		try {
-			tours = parser.parseXML(this);
-				//testChar("       CALORIES: "+ tours.get(i).Calories + System.getProperty("line.separator"));
-				//testChar("       PORTIONS: "+ tours.get(i).Portion_Amount + System.getProperty("line.separator"));
-			}catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		
 		
 		String[] textArray = new String[]{tours.get(0).Display_Name};
-			
-		/*
+		Vector<String> vec = new Vector<String>();
+		int counter = 0;
 		for (int i=0; i<tours.size();i++){
 			if(tours.get(i).Display_Name.contains(text)){
-				
-				foods.add(tours.get(i));
-				
+				counter++;
+				vec.add(tours.get(i).Display_Name);
 			}
 		}
+		String[] array = new String[counter];
+		for (int i=0; i<counter;i++){
+			array[i]=vec.elementAt(i);
+		}
+		
+		
+		/*
 		for (int i=0;i<foods.size();i++){
 			foodArray[i] = foods.get(i).Display_Name;
 		}*/
 		Intent listIntent = new Intent(AddActivity.this, ListviewActivity.class);
-        listIntent.putExtra("search", textArray);
+        listIntent.putExtra("search", array);
         startActivity(listIntent);
 			
         
