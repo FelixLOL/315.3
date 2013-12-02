@@ -8,19 +8,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:visibility="visible"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:onClick="transitionToMenu"  />
+        android:layout_alignParentTop="true"
+        android:onClick="searchbyenter"
+        android:text="Look" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/addingEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="false"
@@ -29,7 +29,6 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="TYPE A FOOD ITEM"
-        android:inputType="text"
         android:textAlignment="inherit"
         android:textSize="28dp" />
 
@@ -49,8 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="37dp"
-        android:layout_toLeftOf="@+id/button2"
+        android:layout_toRightOf="@+id/button"
         android:onClick="transitionToFavorites"
         android:text="Favorite" />
 
@@ -58,9 +56,9 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_alignTop="@+id/button1"
-        android:layout_toLeftOf="@+id/button1"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_alignParentLeft="true"
         android:onClick="transitionToAdd"
         android:text="Adding" />
 
@@ -68,9 +66,8 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_toLeftOf="@+id/button3"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button1"
         android:onClick="transitionToSearch"
         android:text="Search" />
 
@@ -78,10 +75,9 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button2"
         android:layout_alignBottom="@+id/button2"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_alignRight="@+id/editText"
+        android:layout_alignTop="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
         android:onClick="transitionToProgress"
         android:text="Progress" />
 
