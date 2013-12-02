@@ -1,7 +1,11 @@
 package com.example.healthyfood;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
+
+import com.example.healthyfood.Food;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -9,6 +13,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -84,41 +89,64 @@ public class AddActivity extends Activity {
 	public void searchbyenter(View view) {
         EditText edit = (EditText) findViewById(R.id.addingEditText);
         String text = edit.getText().toString(); 
-        //String[] searchArray = searchFoodNames(text);
+        String[] searchArray = searchFoodNames(text);
         String[] textArray = new String[]{text};
         
         
         Intent listIntent = new Intent(AddActivity.this, ListviewActivity.class);
-        listIntent.putExtra("search", textArray);
+        listIntent.putExtra("search", searchArray);
         startActivity(listIntent);
         
+	}
+	private void setListAdapter(ArrayAdapter<Food> adapter) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
 
-	private String[] searchFoodNames(String s){
+	public String[] searchFoodNames(String s){
 		Search parser = new Search();
-		List<Food> tours;
 		
-		String[] foodArray = null;
+		
+		String[] foodArray1 = null;
+		
 		try {
-			tours = parser.parseXML(this);
+			List<Food> foods = null;
+			String[] foodArray2 = null;
+			
+			
+			List<Food> tours = parser.parseXML(this);
+			
 			
 			for (int i=0; i<tours.size();i++){
-				if(tours.get(i).Display_Name.contains(s))
-				
-					foodArray[i] = tours.get(i).Display_Name;
-								
-				
+				if(tours.get(i).Display_Name.contains(s)){
+					
+					foods.add(tours.get(i));
+					
+				}
+
 				//testChar("       CALORIES: "+ tours.get(i).Calories + System.getProperty("line.separator"));
 				//testChar("       PORTIONS: "+ tours.get(i).Portion_Amount + System.getProperty("line.separator"));
 
 			}
+			
+			for (int i=0;i<foods.size();i++){
+				foodArray2[i] = foods.get(i).Display_Name;
+			}
+			
+			
+			arrayCopy(foodArray1,foodArray2);
+			foodArray1 = foodArray2;
+			foodArray1.clone();
+			
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return foodArray;
+		return foodArray1;
+		
 				
 	}
 	
