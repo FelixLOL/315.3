@@ -1,7 +1,7 @@
 package com.example.healthyfood;
 
 public class Food {
-	public String Food_Code;
+	static public String Food_Code;
 	public String Display_Name;
 	public String Portion_Default;
 	public String Portion_Amount;
