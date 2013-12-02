@@ -50,23 +50,13 @@ public class Search {
 	
 	
 	
-	/*
-	private static final String TOUR_TAG = "tour";
-	private static final String TOUR_ID = "tourId";
-	private static final String TOUR_TITLE = "tourTitle";
-	private static final String TOUR_DESC = "description";
-	private static final String TOUR_PRICE = "price";
-	private static final String TOUR_IMAGE = "image";
-	*/
-	
-	
 
 	public List<Food> parseXML(Context context) throws IOException {
 
 		//InputStream stream = context.getApplicationContext().getAssets().open("Food_Display_Table.xml");
 		InputStream stream = context.getResources().openRawResource(R.raw.food_table);
 		SAXBuilder builder = new SAXBuilder();
-		List<Food> tours = new ArrayList<Food>();
+		List<Food> foodList = new ArrayList<Food>();
 
 		try {
 
@@ -75,66 +65,37 @@ public class Search {
 			List<org.jdom2.Element> list = rootNode.getChildren(FOOD_TAG);
 
 			for (Element node : list) {
-				Food tour = new Food();
-				tour.setFood_Code(node.getChildText(FOOD_FOOD_CODE));
-				tour.setDisplay_Name(node.getChildText(FOOD_DISPLAY_NAME));
-				tour.setCalories(node.getChildText(FOOD_CALORIES));
-				tour.setPortion_Default(node.getChildText(FOOD_PORTION_DEFAULT));
-				tour.setPortion_Amount(node.getChildText(FOOD_PORTION_AMOUNT));
-				tour.setPortion_Display_Name(node.getChildText(FOOD_PORTION_DISPLAY_NAME));
-				tour.setFactor(node.getChildText(FOOD_FACTOR));
-				tour.setIncrement(node.getChildText(FOOD_INCREMENT));
-				tour.setMultiplier(node.getChildText(FOOD_MULTIPLIER));
-				tour.setFood_Code(node.getChildText(FOOD_FOOD_CODE));
-				tour.setGrains(node.getChildText(FOOD_GRAINS));
-				tour.setWhole_Grains(node.getChildText(FOOD_WHOLE_GRAINS));
-				tour.setVegetables(node.getChildText(FOOD_VEGETABLES));
-				tour.setOrange_Vegetables(node.getChildText(FOOD_ORANGE_VEGETABLES));
-				tour.setDrkgreen_Vegetables(node.getChildText(FOOD_DRKGREEN_VEGETABLES));
-				tour.setStarchy_vegetables(node.getChildText(FOOD_STARCHY_VEGETABLES));
-				tour.setOther_Vegetables(node.getChildText(FOOD_OTHER_VEGETABLES));
-				tour.setFruits(node.getChildText(FOOD_FRUITS));
-				tour.setMilk(node.getChildText(FOOD_MILK));
-				tour.setMeats(node.getChildText(FOOD_MEATS));
-				tour.setSoy(node.getChildText(FOOD_SOY));
-				tour.setDrybeans_Peas(node.getChildText(FOOD_DRYBEANS_PEAS));
-				tour.setOils(node.getChildText(FOOD_OILS));
-				tour.setSolid_Fats(node.getChildText(FOOD_SOLID_FATS));
-				tour.setAdded_Sugars(node.getChildText(FOOD_ADDED_SUGARS));
-				tour.setSolid_Fats(node.getChildText(FOOD_SOLID_FATS));
-				tour.setAlcohol(node.getChildText(FOOD_ALCOHOL));
-				tour.setCalories(node.getChildText(FOOD_CALORIES));
-				tour.setSaturated_Fats(node.getChildText(FOOD_SATURATED_FATS));
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				tours.add(tour);
+				Food food = new Food();
+				food.setFood_Code(node.getChildText(FOOD_FOOD_CODE));
+				food.setDisplay_Name(node.getChildText(FOOD_DISPLAY_NAME));
+				food.setCalories(node.getChildText(FOOD_CALORIES));
+				food.setPortion_Default(node.getChildText(FOOD_PORTION_DEFAULT));
+				food.setPortion_Amount(node.getChildText(FOOD_PORTION_AMOUNT));
+				food.setPortion_Display_Name(node.getChildText(FOOD_PORTION_DISPLAY_NAME));
+				food.setFactor(node.getChildText(FOOD_FACTOR));
+				food.setIncrement(node.getChildText(FOOD_INCREMENT));
+				food.setMultiplier(node.getChildText(FOOD_MULTIPLIER));
+				food.setFood_Code(node.getChildText(FOOD_FOOD_CODE));
+				food.setGrains(node.getChildText(FOOD_GRAINS));
+				food.setWhole_Grains(node.getChildText(FOOD_WHOLE_GRAINS));
+				food.setVegetables(node.getChildText(FOOD_VEGETABLES));
+				food.setOrange_Vegetables(node.getChildText(FOOD_ORANGE_VEGETABLES));
+				food.setDrkgreen_Vegetables(node.getChildText(FOOD_DRKGREEN_VEGETABLES));
+				food.setStarchy_vegetables(node.getChildText(FOOD_STARCHY_VEGETABLES));
+				food.setOther_Vegetables(node.getChildText(FOOD_OTHER_VEGETABLES));
+				food.setFruits(node.getChildText(FOOD_FRUITS));
+				food.setMilk(node.getChildText(FOOD_MILK));
+				food.setMeats(node.getChildText(FOOD_MEATS));
+				food.setSoy(node.getChildText(FOOD_SOY));
+				food.setDrybeans_Peas(node.getChildText(FOOD_DRYBEANS_PEAS));
+				food.setOils(node.getChildText(FOOD_OILS));
+				food.setSolid_Fats(node.getChildText(FOOD_SOLID_FATS));
+				food.setAdded_Sugars(node.getChildText(FOOD_ADDED_SUGARS));
+				food.setSolid_Fats(node.getChildText(FOOD_SOLID_FATS));
+				food.setAlcohol(node.getChildText(FOOD_ALCOHOL));
+				food.setCalories(node.getChildText(FOOD_CALORIES));
+				food.setSaturated_Fats(node.getChildText(FOOD_SATURATED_FATS));
+				foodList.add(food);
 			}
 
 		} catch (IOException e) {
@@ -142,7 +103,7 @@ public class Search {
 		} catch (JDOMException e) {
 			Log.i(LOGTAG, e.getMessage());
 		}
-		return tours;
+		return foodList;
 	}
 
 }

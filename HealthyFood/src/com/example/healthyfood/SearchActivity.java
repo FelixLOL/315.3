@@ -8,6 +8,7 @@ import com.example.healthyfood.Food;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,20 +18,28 @@ import android.widget.TextView;
 
 public class SearchActivity extends Activity {
 
+	Boolean runTests = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search);
 		
-		
-		
-		
-		
-		
-		
+		if(runTests) {
+			// run tests here
+		    if(testXMLLookup()) {
+		    	Log.w("test","XML Lookup passed");
+		    }
+		    else {
+		    	Log.w("test","XML Lookup failed");
+		    }
+		}
 	}
 
-
+    private Boolean testXMLLookup() {
+    	
+    	return false;
+    }
 
 	
 	private void setListAdapter(ArrayAdapter<Food> adapter) {
@@ -139,7 +148,6 @@ public class SearchActivity extends Activity {
         String text = edit.getText().toString();
         clearChar();
         printItem(text);
-        
         
 	}
 	public void transitionToProgress(View view) {

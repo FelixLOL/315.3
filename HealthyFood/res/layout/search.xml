@@ -84,6 +84,7 @@
 
             <EditText
                 android:id="@+id/editText1"
+                android:hint="Search for a food"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10" >

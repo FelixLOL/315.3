@@ -9,54 +9,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:visibility="visible"
     tools:context=".MainActivity">
-    
-
-<Button
-    android:id="@+id/button1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignLeft="@+id/textView"
-    android:layout_alignParentBottom="true"
-    android:onClick="transitionToFavorites"
-    android:text="Favorite" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Menu"
+        android:text="Search"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:onClick="transitionToMenu"  />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/button3"
-        android:text="+ FOOD ITEM" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button4"
-        android:layout_toLeftOf="@+id/button3"
-        android:text="Adding Food"
-        android:textIsSelectable="false"
-        android:textSize="30sp"
-        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button5"
         android:layout_alignParentEnd="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="148dp"
+        android:layout_alignRight="@+id/button4"
+        android:layout_below="@+id/button4"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="TYPE A FOOD ITEM"
@@ -64,13 +33,34 @@
         android:textAlignment="inherit"
         android:textSize="28dp" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText"
+        android:layout_alignLeft="@+id/editText"
+        android:text="Adding Food"
+        android:textIsSelectable="false"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="37dp"
+        android:layout_toLeftOf="@+id/button2"
+        android:onClick="transitionToFavorites"
+        android:text="Favorite" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignLeft="@+id/button5"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignTop="@+id/button1"
+        android:layout_toLeftOf="@+id/button1"
         android:onClick="transitionToAdd"
         android:text="Adding" />
 
@@ -81,7 +71,6 @@
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
         android:layout_toLeftOf="@+id/button3"
-        android:layout_toRightOf="@+id/button1"
         android:onClick="transitionToSearch"
         android:text="Search" />
 
@@ -91,7 +80,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button2"
         android:layout_alignBottom="@+id/button2"
-        android:layout_alignRight="@+id/button4"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_alignRight="@+id/editText"
         android:onClick="transitionToProgress"
         android:text="Progress" />
 
