@@ -16,31 +16,32 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class AddActivity extends Activity {
-	static Search parser = new Search();
-	static List<Food> tours;
-	
-	private void getAllFoodItems(){
-		try {
-			tours = parser.parseXML(this);
-				//testChar("       CALORIES: "+ tours.get(i).Calories + System.getProperty("line.separator"));
-				//testChar("       PORTIONS: "+ tours.get(i).Portion_Amount + System.getProperty("line.separator"));
-			}catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-	}
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adding);
-		getAllFoodItems();
-		
+		Intent i = getIntent();
+        String k = i.getStringExtra("selected");
+		int cal = 0;
+        
+        if ((k != null) && (k.length()>0)){
+            //cal = getFoodCalories(k);
+        	//if(cal>0){
+        		
+        		print (k);
+        	//}
+            
+        }
+        else{
+        	k = "";
+        	
+        }
 
 		/*
 		Button b = (Button) findViewById(R.id.button4);
@@ -96,21 +97,24 @@ public class AddActivity extends Activity {
 	    String[] foodArray = null;
 		List<Food> foods = null;
 		
+		List<Food> foodList = MainActivity.getTours();
 		
 		
-		String[] textArray = new String[]{tours.get(0).Display_Name};
+		String[] textArray = new String[]{foodList.get(0).Display_Name};
 		Vector<String> vec = new Vector<String>();
 		int counter = 0;
-		for (int i=0; i<tours.size();i++){
-			if(tours.get(i).Display_Name.contains(text)){
+		for (int i=0; i<foodList.size();i++){
+			if(foodList.get(i).Display_Name.contains(text)){
 				counter++;
-				vec.add(tours.get(i).Display_Name);
+				vec.add(foodList.get(i).Display_Name);
 			}
 		}
 		String[] array = new String[counter];
 		for (int i=0; i<counter;i++){
 			array[i]=vec.elementAt(i);
 		}
+		
+		
 		
 		
 		/*
@@ -124,60 +128,39 @@ public class AddActivity extends Activity {
         
         
         
-        
 	}
-	private void setListAdapter(ArrayAdapter<Food> adapter) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
-	/*
-
-	public String[] searchFoodNames(String s){
-		Search parser = new Search();
+	private int getFoodCalories(String content)
+	{
+		List<Food> foodList = MainActivity.getTours();
+		Food food =null;
 		
-		
-		String[] foodArray1 = null;
-		
-		try {
-			List<Food> foods = null;
-			String[] foodArray2 = null;
-			
-			
-			List<Food> tours = parser.parseXML(this);
-			
-			
-			for (int i=0; i<tours.size();i++){
-				if(tours.get(i).Display_Name.contains(s)){
-					
-					foods.add(tours.get(i));
-					
-				}
-
-				//testChar("       CALORIES: "+ tours.get(i).Calories + System.getProperty("line.separator"));
-				//testChar("       PORTIONS: "+ tours.get(i).Portion_Amount + System.getProperty("line.separator"));
-
+		for (int i=0; i<foodList.size();i++){
+			if(foodList.get(i).Display_Name.matches(content)){
+				food = foodList.get(i);
 			}
-			
-			for (int i=0;i<foods.size();i++){
-				foodArray2[i] = foods.get(i).Display_Name;
-			}
-			
-			foodArray1 = foodArray2;
-			
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		return foodArray1;
-		
+		int calories  = Integer.valueOf(food.getCalories());		
 				
+		return calories;
+
 	}
-	*/
 	
 	
 	
+	private void print(String content){
+		TextView display = (TextView)findViewById(R.id.textView1);
+		//String temp = (String) display.getText();
+		//System.getProperty("line.separator");
+		
+		String text = System.getProperty("line.separator") +System.getProperty("line.separator") 
+				+"NAME: "+content+System.getProperty("line.separator") + "CALORIES: " + //cal +
+				System.getProperty("line.separator") ; 
+		
+		
+		display.setText(text);
+	}
 	
 
 }

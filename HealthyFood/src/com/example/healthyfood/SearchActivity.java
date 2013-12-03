@@ -41,24 +41,15 @@ public class SearchActivity extends Activity {
     	return false;
     }
 
-	
-	private void setListAdapter(ArrayAdapter<Food> adapter) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	private void printItem(String s){
-		Search parser = new Search();
-		List<Food> tours;
-		try {
-			tours = parser.parseXML(this);
-			
-			for (int i=0; i<tours.size();i++){
-				if(tours.get(i).Display_Name.contains(s))
+		List<Food> foodList = MainActivity.tours;
+		for (int i=0; i<foodList.size();i++){
+			if(foodList.get(i).Display_Name.contains(s)){
 				testChar(
-						"NAME: "+tours.get(i).Display_Name+System.getProperty("line.separator") 
-						+"CALORIES: "+tours.get(i).Calories+System.getProperty("line.separator")
-						+"PORTION AMOUNT: "+tours.get(i).Portion_Amount+ System.getProperty("line.separator")
+						"NAME: "+foodList.get(i).Display_Name+System.getProperty("line.separator") 
+						+"CALORIES: "+foodList.get(i).Calories+System.getProperty("line.separator")
+						+"PORTION AMOUNT: "+foodList.get(i).Portion_Amount+ System.getProperty("line.separator")
 						+ System.getProperty("line.separator")
 								
 				);
@@ -66,11 +57,9 @@ public class SearchActivity extends Activity {
 				//testChar("       PORTIONS: "+ tours.get(i).Portion_Amount + System.getProperty("line.separator"));
 
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		
+		foodList.clear();
+				
 	}
 
 
@@ -104,24 +93,10 @@ public class SearchActivity extends Activity {
 	private void printFoods(ArrayList<Food> products)
 	{
 		String content = "Array Contains Food items";
-		//Iterator<Food> it = products.iterator();
 		
 		if (products.isEmpty()){
 			content = "Array is Empty";
-		}
-		/*
-		Food currProduct  = products.get(0);
-		content = content + "nName :" +  currProduct.Display_Name + "n";
-		*/
-		
-		/*while(it.hasNext())
-		{
-			Food currProduct  = it.next();
-			content = content + "nName :" +  currProduct.Display_Name + "n";
-
-		}*/
-		
-		
+		}	
 
 		TextView display = (TextView)findViewById(R.id.textView1);
 		display.setText(content);
@@ -158,10 +133,7 @@ public class SearchActivity extends Activity {
 		Intent intent = new Intent(SearchActivity.this, SearchActivity.class);
 		SearchActivity.this.startActivity(intent);
 	}
-	
-	
-	
-	
+
 
 }
 

@@ -31,7 +31,7 @@ public class SearchActivityTest extends ActivityInstrumentationTestCase2<SearchA
 		final String actual = searchTitleText.getText().toString();
 	    assertEquals(expected,actual);
 	}
-	
+		
 	
 	
 	

@@ -19,18 +19,22 @@
         android:onClick="searchbyenter"
         android:text="Look" />
 
-    <EditText
-        android:id="@+id/addingEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="false"
-        android:layout_alignRight="@+id/button4"
-        android:layout_below="@+id/button4"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:hint="TYPE A FOOD ITEM"
-        android:textAlignment="inherit"
-        android:textSize="28dp" />
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="284dp"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.58"
+            android:background="#FFFFFF"
+            android:text="" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView"
@@ -80,5 +84,18 @@
         android:layout_toRightOf="@+id/button2"
         android:onClick="transitionToProgress"
         android:text="Progress" />
+
+    <EditText
+        android:id="@+id/addingEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="false"
+        android:layout_alignRight="@+id/button4"
+        android:layout_below="@+id/button4"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="TYPE A FOOD ITEM"
+        android:textAlignment="inherit"
+        android:textSize="28dp" />
 
 </RelativeLayout>

@@ -20,21 +20,6 @@ import android.widget.Toast;
 
 public class ListviewActivity extends ListActivity { 
 	
-	
-    static final String[] COUNTRIES = new String[] {
-
-        "Afghanistan", "Albania", "Algeria", "American Samoa",
-            "Andorra", "Angola", "Anguilla", "Antarctica",
-            "Antigua and Barbuda", "Argentina", "Armenia", "Aruba",
-            "Australia", "Austria", "Azerbaijan", "Bahrain",
-            "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize",
-            "Benin", "Bermuda", "Bhutan", "Bolivia",
-            "Bosnia and Herzegovina", "Botswana", "Bouvet Island",
-            "Brazil", "British Indian Ocean Territory"
-    };
-    
-    
-    
 
     /** Called when the activity is first created. */
 	@Override
@@ -62,39 +47,44 @@ public class ListviewActivity extends ListActivity {
         //}
         getListView().setTextFilterEnabled(true);
     }
+	
+	
+	private void clearView(){
+		TextView display = (TextView)findViewById(R.id.textView1);
+		display.setText("");
+		
+	}
+	
+	
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    protected void onListItemClick(final ListView l, final View v, final int position, final long id) {
         // TODO Auto-generated method stub
         super.onListItemClick(l, v, position, id);
 
+        //AddActivity.tours.
+        
         new AlertDialog.Builder(this)
-            .setTitle("Hello")
-            .setMessage("from " + getListView().getItemAtPosition(position))
-            .setPositiveButton("OK",
+            .setTitle("Add Food Item")
+            .setMessage("NAME: " + getListView().getItemAtPosition(position))
+            .setPositiveButton("ADD",
             new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {}
-            })
+                public void onClick(DialogInterface dialog, int which) {
+                	String selectedFromList = (String) (l.getItemAtPosition(position));
+                	Intent intent = new Intent(ListviewActivity.this, AddActivity.class);
+                	intent.putExtra("selected", selectedFromList);
+            		ListviewActivity.this.startActivity(intent);
+              }
+          })
             .show();
-
+/*
         Toast.makeText(ListviewActivity.this,
             "ListView: " + l.toString() + "\n" +
             "View: " + v.toString() + "\n" +
             "position: " + String.valueOf(position) + "\n" +
             "id: " + String.valueOf(id),
-            Toast.LENGTH_LONG).show();
+            Toast.LENGTH_LONG).show();*/
     }
     
-    /*
-	private void testString(String content)
-	{
-		
-		TextView display = (TextView)findViewById(R.id.textView1);
-		String temp = (String) display.getText();
-		temp += content;
-		display.setText(temp);
-
-	}*/
-    
-
+  
 }
