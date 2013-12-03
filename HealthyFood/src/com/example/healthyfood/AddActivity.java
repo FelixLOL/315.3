@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 
 public class AddActivity extends Activity {
+	static Food food;
 	
 	
 	@Override
@@ -28,20 +29,21 @@ public class AddActivity extends Activity {
 		setContentView(R.layout.activity_adding);
 		Intent i = getIntent();
         String k = i.getStringExtra("selected");
-		int cal = 0;
+		String cal = "";
         
         if ((k != null) && (k.length()>0)){
-            //cal = getFoodCalories(k);
+            cal = getFoodCalories(k);
         	//if(cal>0){
         		
-        		print (k);
+        		print (k, cal);
         	//}
             
-        }
+        }/*
         else{
         	k = "";
+        	cal = "";
         	
-        }
+        }*/
 
 		/*
 		Button b = (Button) findViewById(R.id.button4);
@@ -131,31 +133,29 @@ public class AddActivity extends Activity {
 	}
 
 	
-	private int getFoodCalories(String content)
+	private String getFoodCalories(String content)
 	{
 		List<Food> foodList = MainActivity.getTours();
-		Food food =null;
-		
+				
 		for (int i=0; i<foodList.size();i++){
-			if(foodList.get(i).Display_Name.matches(content)){
+			if(foodList.get(i).Display_Name.contentEquals(content)){
 				food = foodList.get(i);
+				
 			}
 		}
-		int calories  = Integer.valueOf(food.getCalories());		
-				
-		return calories;
-
+		
+		return food.getCalories();
 	}
 	
 	
 	
-	private void print(String content){
+	private void print(String content, String cal){
 		TextView display = (TextView)findViewById(R.id.textView1);
-		//String temp = (String) display.getText();
+		String text = (String) display.getText();
 		//System.getProperty("line.separator");
 		
-		String text = System.getProperty("line.separator") +System.getProperty("line.separator") 
-				+"NAME: "+content+System.getProperty("line.separator") + "CALORIES: " + //cal +
+		text += System.getProperty("line.separator") +System.getProperty("line.separator") 
+				+"NAME: "+content+System.getProperty("line.separator") + "CALORIES: " + cal +
 				System.getProperty("line.separator") ; 
 		
 		
