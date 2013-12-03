@@ -1,6 +1,5 @@
 package com.example.healthyfood;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.app.Activity;
 import android.widget.TextView;
@@ -53,8 +51,6 @@ public class SearchActivity extends Activity {
 						+ System.getProperty("line.separator")
 								
 				);
-				//testChar("       CALORIES: "+ tours.get(i).Calories + System.getProperty("line.separator"));
-				//testChar("       PORTIONS: "+ tours.get(i).Portion_Amount + System.getProperty("line.separator"));
 
 			}
 		}

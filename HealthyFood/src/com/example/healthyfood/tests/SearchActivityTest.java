@@ -32,7 +32,5 @@ public class SearchActivityTest extends ActivityInstrumentationTestCase2<SearchA
 	    assertEquals(expected,actual);
 	}
 		
-	
-	
-	
+
 }

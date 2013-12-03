@@ -198,6 +198,4 @@ public class Food {
 		this.Saturated_Fats = Saturated_Fats;
 	}
 	
-	
-
 }
